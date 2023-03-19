@@ -396,13 +396,13 @@ ContactComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "i", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "MedInoutlook@example.com");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "contact@medinoutlook.com");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "i", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "31368408 ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "58038504");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "31368409");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
