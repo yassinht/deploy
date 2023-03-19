@@ -354,20 +354,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactComponent", function() { return ContactComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngx-translate/core */ "sYmb");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+
 
 
 
 class ContactComponent {
-    constructor(translateService) {
+    constructor(translateService, http) {
         this.translateService = translateService;
+        this.http = http;
     }
     ngOnInit() {
         this.lang = localStorage.getItem('langue' || false);
         this.translateService.use(this.lang);
     }
+    onSubmit() {
+        const formData = {
+            name: this.name,
+            email: this.email,
+            subject: this.subject,
+            message: this.message
+        };
+        this.http.post('/api/sendmail', formData).subscribe(response => console.log(response), error => console.log(error));
+    }
 }
-ContactComponent.ɵfac = function ContactComponent_Factory(t) { return new (t || ContactComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslateService"])); };
+ContactComponent.ɵfac = function ContactComponent_Factory(t) { return new (t || ContactComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslateService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
 ContactComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ContactComponent, selectors: [["app-contact"]], decls: 47, vars: 18, consts: [["id", "contact"], ["src", "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12765.663671497488!2d10.2607509!3d36.8803972!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb2227083e4a3bb8f!2sm%C3%A9d'in%20outlook!5e0!3m2!1sfr!2stn!4v1675694085165!5m2!1sfr!2stn", "width", "100%", "height", "380", "frameborder", "0", "allowfullscreen", "", 2, "border", "0"], [1, "container", "mt-5"], [1, "row", "justify-content-center", 2, "margin-left", "10%"], [1, "col-lg-3", "col-md-12"], [1, "info"], [2, "margin-left", "40%"], [1, "bi", "bi-geo-alt"], [1, "bi", "bi-envelope"], [1, "bi", "bi-phone"], [1, "social-links", 2, "margin-left", "40%"], [1, "col-lg-8", "col-md-8"], [1, "form", 2, "margin-left", "40%"], ["action", "forms/contact.php", "method", "post", "role", "form", 1, "php-email-form"], [1, "form-group"], ["type", "text", "name", "name", "id", "name", "required", "", 1, "form-control", 3, "placeholder"], [1, "form-group", "mt-3"], ["type", "email", "name", "email", "id", "email", "required", "", 1, "form-control", 3, "placeholder"], ["type", "text", "name", "subject", "id", "subject", "required", "", 1, "form-control", 3, "placeholder"], ["name", "message", "rows", "5", "placeholder", "Message", "required", "", 1, "form-control"], [1, "my-3"], [1, "loading"], [1, "error-message"], [1, "sent-message"], [1, "text-center"], ["type", "submit"]], template: function ContactComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "iframe", 1);
@@ -452,7 +464,7 @@ ContactComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](42, 14, "sent-message"));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](46, 16, "send msg"));
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"]], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslatePipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250YWN0LmNvbXBvbmVudC5jc3MifQ== */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"]], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslatePipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250YWN0LmNvbXBvbmVudC5jc3MifQ== */"] });
 
 
 /***/ }),

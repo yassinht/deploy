@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -15,6 +16,43 @@ app.use((req, res, next) => {
 
 // Serve static files
 app.use(express.static('dist/medIn/'));
+
+
+// nodemailer
+
+
+app.post('/api/sendmail', (req, res) => {
+    const { name, email, subject, message } = req.body;
+  
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: '',
+        pass: ''
+      }
+    });
+  
+    const mailOptions = {
+      from: '',
+      to: 'recipient-ema',
+      subject: subject,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+    };
+  
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.status(500).send('Error sending email');
+      } else {
+        console.log(`Email sent: ${info.response}`);
+        res.send('Email sent successfully');
+      }
+    });
+  });
+
+
+
+
 
 // Serve index.html for all routes
 app.get('*', function(req, res) {
