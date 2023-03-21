@@ -2,9 +2,14 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
 
 const app = express();
-
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // Maintenance mode middleware
 app.use((req, res, next) => {
   if (fs.existsSync('/var/www/maintenance.flag')) {
@@ -33,8 +38,8 @@ app.post('/api/sendmail', (req, res) => {
     });
   
     const mailOptions = {
-      from: '',
-      to: 'recipient-ema',
+      from: `${email}`,
+      to: '',
       subject: subject,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
     };

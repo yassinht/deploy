@@ -390,13 +390,18 @@ class ContactComponent {
     }
     onSubmit(myForm) {
         console.log(myForm.value);
-        this.showSuccess = true;
         setTimeout(() => {
             this.showSuccess = false;
         }, 2000);
-        this.http.post('/api/sendmail', this.myForm).subscribe(response => {
-            console.log(response), this.toastr.success('Message sent!', 'Success', {}), this.myForm.reset();
-        }, error => console.log(error));
+        this.http.post('http://localhost:7000/api/sendmail', myForm.value).subscribe(response => {
+            console.log(response);
+            this.showSuccess = true;
+            this.toastr.success('Message sent!', 'Success', {});
+            this.myForm.reset();
+        }, error => {
+            console.log(error);
+            this.myForm.reset();
+        });
     }
 }
 ContactComponent.ɵfac = function ContactComponent_Factory(t) { return new (t || ContactComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"])); };
