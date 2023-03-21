@@ -394,12 +394,12 @@ class ContactComponent {
             this.showSuccess = false;
         }, 2000);
         this.http.post('http://localhost:7000/api/sendmail', myForm.value).subscribe(response => {
-            console.log(response);
+            // console.log(response);
             this.showSuccess = true;
             this.toastr.success('Message sent!', 'Success', {});
             this.myForm.reset();
         }, error => {
-            console.log(error);
+            // console.log(error);
             this.myForm.reset();
         });
     }
